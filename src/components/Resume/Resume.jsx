@@ -1,6 +1,6 @@
 import React from "react";
 import { FaDownload } from "react-icons/fa";
-import CVFile from "../../assets/Badejo Samson-Software Developer Bootcamp_ Certificate of Completion.pdf";
+import CVFile from "../../assets/my cv badejo samson.pdf";
 
 const Resume = () => {
   return (
