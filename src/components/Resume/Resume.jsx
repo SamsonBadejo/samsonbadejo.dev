@@ -1,6 +1,7 @@
 import React from "react";
 import { FaDownload } from "react-icons/fa";
 import CVFile from "../../assets/my cv badejo samson.pdf";
+import CvDesigner from "../../assets/CV Samson Badejo.pdf";
 import { motion } from "framer-motion";
 
 const Resume = () => {
@@ -15,7 +16,7 @@ const Resume = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        My Resume{" "}
+        My Resume
       </motion.h1>
       <p
         className="text-gray-300 text-lg text-center mb-10 max-w-3xl"
@@ -144,16 +145,37 @@ const Resume = () => {
         </div>
       </div>
 
-      {/* Download Button */}
-      <a
-        href={CVFile}
-        download="Badejo_Samson_CV.pdf"
-        className="mt-10 inline-flex items-center gap-3 bg-[red] hover:bg-[#5f0202] text-white font-semibold px-8 py-3 rounded-full transition-all shadow-md"
-        data-aos="fade-up"
-        data-aos-delay="800"
-      >
-        <FaDownload /> Download CV
-      </a>
+   {/* Download Buttons */}
+<div className="flex flex-col md:flex-row gap-6 justify-center mt-10">
+  {/* Software Developer CV */}
+  <div className="flex flex-col items-center">
+    <span className="text-white font-semibold mb-2">Software Developer</span>
+    <a
+      href={CVFile}
+      download="Badejo_Samson_CV_Software_Developer.pdf"
+      className="inline-flex items-center gap-3 bg-[red] hover:bg-[#5f0202] text-white font-semibold px-8 py-3 rounded-full transition-all shadow-md"
+      data-aos="fade-up"
+      data-aos-delay="800"
+    >
+      <FaDownload /> Download CV
+    </a>
+  </div>
+
+  {/* Graphics Designer CV */}
+  <div className="flex flex-col items-center">
+    <span className="text-white font-semibold mb-2">Graphics Designer</span>
+    <a
+      href={CvDesigner}
+      download="Badejo_Samson_CV_Graphics_Designer.pdf"
+      className="inline-flex items-center gap-3 bg-[red] hover:bg-[#5f0202] text-white font-semibold px-8 py-3 rounded-full transition-all shadow-md"
+      data-aos="fade-up"
+      data-aos-delay="900"
+    >
+      <FaDownload /> Download CV
+    </a>
+  </div>
+</div>
+
     </section>
   );
 };
