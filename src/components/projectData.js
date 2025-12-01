@@ -67,6 +67,26 @@ const skillData = [
       { name: "Postman", level: 80 },
     ],
   },
+
+  {
+    category: "Graphics Design",
+    skills: [
+      { name: "Canva", level: 90 },
+      { name: "CorelDraw", level: 80 },
+      { name: "Brand Design", level: 85 },
+      { name: "Social Media Design", level: 88 },
+    ],
+  },
+
+  {
+    category: "Video Editing",
+    skills: [
+      { name: "CapCut", level: 90 },
+      { name: "Premiere Pro", level: 70 },
+      { name: "Camera Workflow", level: 80 },
+      { name: "Color Grading", level: 70 },
+    ],
+  },
 ];
 
 export { projectData, skillData };

@@ -11,12 +11,13 @@ import Certificates from "./components/Certificate/Certificates";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import Divider from "./components/Divider";
+import GraphicDesigns from "./components/GraphicsGallery/GraphicDesigns";
 
 const App = () => {
   useEffect(() => {
     AOS.init({
       duration: 1000, // animation speed
-      once: true,     // run only once
+      once: true, // run only once
       easing: "ease-in-out",
     });
   }, []);
@@ -33,6 +34,10 @@ const App = () => {
 
       <section id="projects" data-aos="fade-up">
         <Projects />
+      </section>
+
+      <section id="graphics" data-aos="fade-up">
+        <GraphicDesigns />
       </section>
 
       <Divider />

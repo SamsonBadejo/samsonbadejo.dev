@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { motion } from "framer-motion";
 
 import SoftwareDevCert from "../../assets/Badejo Samson-Software Developer Bootcamp_ Certificate of Completion_page-0001.jpg";
 import MongodbCert from "../../assets/sammie-vibex-8bf780aa-3217-4e77-873b-244f22bdea13-certificate_page-0001.jpg";
@@ -31,12 +32,13 @@ const Certificates = () => {
   return (
     <section id="certificates" className="bg-black text-white py-16 px-6">
       <div className="max-w-5xl mx-auto text-center">
-        <h1
-          className="text-4xl font-bold mb-3 text-white"
-          data-aos="fade-up"
+        <motion.h1
+          className="text-4xl sm:text-6xl font-black text-white text-center mb-10 tracking-wide"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
         >
           My Certificates
-        </h1>
+        </motion.h1>
 
         <p
           className="text-gray-300 text-lg mb-12 max-w-2xl mx-auto"

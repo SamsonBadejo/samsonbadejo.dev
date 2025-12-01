@@ -1,6 +1,8 @@
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 import { projectData } from "../projectData";
+import { motion } from "framer-motion";
+
 
 const ProjectSection = () => {
   return (
@@ -9,12 +11,13 @@ const ProjectSection = () => {
       className="bg-black text-white py-16 px-6"
       data-aos="fade-up"
     >
-      <h1
-        className="text-center text-4xl font-bold mb-4"
-        data-aos="fade-down"
+      <motion.h1
+        className="text-4xl sm:text-6xl font-black text-white text-center mb-10 tracking-wide"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
       >
-        My Projects
-      </h1>
+        Recent Projects
+      </motion.h1>
 
       <p
         className="text-center text-md mb-12 text-gray-300 max-w-3xl mx-auto"
