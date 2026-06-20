@@ -2,7 +2,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   FaArrowRight,
-  FaBehance,
   FaBriefcase,
   FaCamera,
   FaChevronLeft,
@@ -15,10 +14,12 @@ import {
   FaInstagram,
   FaLayerGroup,
   FaLinkedin,
+  FaMoon,
   FaPause,
   FaPalette,
   FaPhoneAlt,
   FaPlay,
+  FaSun,
   FaTimes,
   FaVideo,
   FaVolumeMute,
@@ -39,7 +40,6 @@ const CONTACT = {
   linkedin: "https://www.linkedin.com/in/samson-badejo",
   instagram: "https://www.instagram.com/samcodex/",
   github: "https://github.com/SamsonBadejo",
-  behance: "https://www.behance.net/",
 };
 
 const source = {
@@ -214,17 +214,75 @@ function FloatingNav() {
 function MobileTopNav() {
   return (
     <div className="fixed inset-x-3 bottom-3 z-50 rounded-2xl border border-white/10 bg-black/70 p-2 backdrop-blur-xl md:hidden">
-      <div className="grid grid-cols-6 gap-1">
+      <div className="grid grid-cols-7 gap-1">
         {navItems.map((item) => {
           const Icon = item.icon;
           return (
-            <a key={item.id} href={`#${item.id}`} className="grid h-11 place-items-center rounded-xl text-white/75 hover:bg-red-600 hover:text-white" aria-label={item.label}>
+            <a key={item.id} href={`#${item.id}`} className="grid h-10 place-items-center rounded-xl text-sm text-white/75 hover:bg-red-600 hover:text-white" aria-label={item.label}>
               <Icon />
             </a>
           );
         })}
       </div>
     </div>
+  );
+}
+
+function ThemeToggle({ theme, setTheme }) {
+  const isLight = theme === "light";
+
+  return (
+    <motion.button
+      className="fixed right-4 top-4 z-[70] grid h-12 w-12 place-items-center rounded-full border border-white/15 bg-white text-red-600 shadow-2xl shadow-black/30 transition hover:scale-105 md:right-6 md:top-6"
+      onClick={() => setTheme(isLight ? "dark" : "light")}
+      initial={{ y: -16, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ delay: 0.7, duration: 0.45 }}
+      aria-label="Toggle dark and light mode"
+    >
+      {isLight ? <FaMoon /> : <FaSun />}
+    </motion.button>
+  );
+}
+
+function ScrollProgress() {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const update = () => {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(max > 0 ? (window.scrollY / max) * 100 : 0);
+    };
+    update();
+    window.addEventListener("scroll", update);
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+
+  return (
+    <div className="fixed left-0 top-0 z-[80] h-1 w-full bg-transparent">
+      <div className="h-full bg-red-600" style={{ width: `${progress}%` }} />
+    </div>
+  );
+}
+
+function QuickContact() {
+  return (
+    <motion.a
+      href={CONTACT.whatsapp}
+      target="_blank"
+      rel="noreferrer"
+      className="fixed bottom-20 right-4 z-50 grid h-12 w-12 place-items-center rounded-full bg-red-600 text-white shadow-2xl shadow-red-950/50 transition hover:bg-white hover:text-red-600 md:bottom-6 md:right-6"
+      initial={{ scale: 0.8, opacity: 0 }}
+      whileInView={{ scale: 1, opacity: 1 }}
+      viewport={{ once: true }}
+      aria-label="Contact on WhatsApp"
+    >
+      <FaWhatsapp />
+    </motion.a>
   );
 }
 
@@ -572,7 +630,6 @@ function ContactSection() {
               [CONTACT.linkedin, FaLinkedin, "LinkedIn"],
               [CONTACT.instagram, FaInstagram, "Instagram"],
               [CONTACT.github, FaGithub, "GitHub"],
-              [CONTACT.behance, FaBehance, "Behance"],
             ].map(([href, Icon, label]) => (
               <a key={label} href={href} target="_blank" rel="noreferrer" className="grid h-12 place-items-center rounded-2xl border border-white/25 text-white transition hover:bg-white hover:text-red-600" aria-label={label}>
                 <Icon />
@@ -618,17 +675,25 @@ function ImageViewer({ imageState, setImageState }) {
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [imageState, setImageState] = useState(null);
+  const [theme, setTheme] = useState(() => localStorage.getItem("portfolio-theme") || "dark");
 
   useEffect(() => {
     const timer = window.setTimeout(() => setLoading(false), 2100);
     return () => window.clearTimeout(timer);
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("portfolio-theme", theme);
+  }, [theme]);
+
   return (
-    <div className="min-h-screen scroll-smooth bg-black">
+    <div className={`portfolio-shell min-h-screen scroll-smooth ${theme}`}>
       <Loader visible={loading} />
+      <ScrollProgress />
+      <ThemeToggle theme={theme} setTheme={setTheme} />
       <FloatingNav />
       <MobileTopNav />
+      <QuickContact />
       <RedHero />
       <AboutSection />
       <SkillsRibbon />

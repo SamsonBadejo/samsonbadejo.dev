@@ -42,6 +42,51 @@
   color-scheme: light;
 }
 
+.portfolio-shell {
+  background: #000;
+  color: #fff;
+  transition: background 220ms ease, color 220ms ease;
+}
+
+.portfolio-shell.light {
+  background: #f6f5f2;
+  color: #111;
+}
+
+.portfolio-shell.light section:not(#top):not(#contact) {
+  background: #f6f5f2 !important;
+  color: #111 !important;
+}
+
+.portfolio-shell.light section:not(#top):not(#contact) .text-white,
+.portfolio-shell.light section:not(#top):not(#contact) .text-white\/60,
+.portfolio-shell.light section:not(#top):not(#contact) .text-white\/65,
+.portfolio-shell.light section:not(#top):not(#contact) .text-white\/70,
+.portfolio-shell.light section:not(#top):not(#contact) .text-white\/75,
+.portfolio-shell.light section:not(#top):not(#contact) .text-white\/80,
+.portfolio-shell.light section:not(#top):not(#contact) .text-white\/85 {
+  color: #151515 !important;
+}
+
+.portfolio-shell.light section:not(#top):not(#contact) .bg-black,
+.portfolio-shell.light section:not(#top):not(#contact) .bg-\[\#050505\],
+.portfolio-shell.light section:not(#top):not(#contact) .bg-\[\#060606\],
+.portfolio-shell.light section:not(#top):not(#contact) .bg-\[\#070707\] {
+  background: #f6f5f2 !important;
+}
+
+.portfolio-shell.light section:not(#top):not(#contact) .bg-white\/\[0\.035\],
+.portfolio-shell.light section:not(#top):not(#contact) .bg-white\/\[0\.04\],
+.portfolio-shell.light section:not(#top):not(#contact) .bg-white\/\[0\.045\] {
+  background: rgba(255, 255, 255, 0.78) !important;
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.08);
+}
+
+.portfolio-shell.light .mix-blend-luminosity {
+  mix-blend-mode: normal;
+}
+
 .theme-page {
   background: var(--page);
 }
