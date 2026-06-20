@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   FaArrowRight,
@@ -15,16 +15,22 @@ import {
   FaInstagram,
   FaLayerGroup,
   FaLinkedin,
+  FaPause,
   FaPalette,
   FaPhoneAlt,
+  FaPlay,
   FaTimes,
   FaVideo,
+  FaVolumeMute,
+  FaVolumeUp,
   FaWhatsapp,
 } from "react-icons/fa";
 import { SiAdobephotoshop, SiCanva, SiCoreldraw } from "react-icons/si";
 import DesignsImages from "./components/DesignsImages";
 import Profile from "./assets/Sammie.png";
 import CV from "./assets/CV Samson Badejo.pdf";
+import ReelOne from "./assets/100TMC .mp4";
+import ReelTwo from "./assets/WhatsApp Video 2025-07-12 at 12.16.09_fcf00cac.mp4";
 
 const CONTACT = {
   email: "Samsonbadejo44@gmail.com",
@@ -49,6 +55,7 @@ const navItems = [
   { id: "brands", label: "Brands", icon: FaLayerGroup },
   { id: "logos", label: "Logos", icon: FaPalette },
   { id: "flyers", label: "Flyers", icon: FaCamera },
+  { id: "videos", label: "Videos", icon: FaVideo },
   { id: "contact", label: "Contact", icon: FaEnvelope },
 ];
 
@@ -85,34 +92,35 @@ const logoWall = [
 const flyerGroups = [
   {
     title: "Event Flyers",
-    subtitle: "Bold event announcements with fast readability.",
     images: [...source.church.slice(0, 3), ...source.social.slice(0, 2)],
   },
   {
     title: "Church Flyers",
-    subtitle: "Faith-based visuals, countdowns and service communications.",
     images: source.church,
   },
   {
     title: "School Flyers",
-    subtitle: "Campus events, school announcements and student-focused graphics.",
     images: source.school,
   },
   {
     title: "Business Flyers",
-    subtitle: "Promotional visuals and branded campaign posts.",
     images: source.branding.slice(4, 11),
   },
   {
     title: "Birthday Flyers",
-    subtitle: "Celebration visuals with clean composition and strong mood.",
     images: source.branding.slice(11, 16),
   },
   {
     title: "Static Flyers",
-    subtitle: "Single-frame designs for social platforms and announcements.",
     images: [...source.social, ...source.school, ...source.branding.slice(0, 4)],
   },
+];
+
+const videoWorks = [
+  { title: "Brand Reel", type: "Brand content", src: ReelOne },
+  { title: "Short Form Edit", type: "Social media", src: ReelTwo },
+  { title: "Wedding Style Cut", type: "Event story", src: ReelTwo },
+  { title: "Before / After Edit", type: "Editing proof", src: ReelOne },
 ];
 
 const skills = [
@@ -230,9 +238,6 @@ function RedHero() {
       <motion.div className="text-center" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25, duration: 0.7 }}>
         <p className="mb-6 text-xs font-black uppercase tracking-[0.42em] text-white/75">Samcodex creative studio</p>
         <h1 className="text-[17vw] font-black leading-none tracking-tight sm:text-[14vw] lg:text-[10vw]">PORTFOLIO</h1>
-        <p className="mx-auto mt-6 max-w-xl text-sm font-semibold leading-7 text-white/80 sm:text-base">
-          Brand design, logos, flyers, social visuals and video editing with a clean commercial finish.
-        </p>
       </motion.div>
       <motion.a
         href="#about"
@@ -261,7 +266,7 @@ function AboutSection() {
         <motion.div className="mx-auto w-full max-w-[360px]" variants={fade} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.35 }}>
           <div className="relative">
             <div className="absolute inset-6 rounded-full bg-red-600/30 blur-3xl" />
-            <img src={Profile} alt="Samson Badejo" className="relative aspect-[4/5] w-full rounded-[28px] border border-white/10 object-cover object-top mix-blend-luminosity shadow-2xl shadow-red-950/40" loading="lazy" decoding="async" />
+            <img src={Profile} alt="Samson Badejo" className="relative aspect-[4/5] w-full rounded-[28px] border border-white/10 object-cover object-top shadow-2xl shadow-red-950/40 saturate-90" loading="lazy" decoding="async" />
           </div>
         </motion.div>
 
@@ -316,13 +321,12 @@ function BrandSection({ onOpenImage }) {
         <SectionIntro
           eyebrow="Portfolio for brand designs"
           title="Brand identities shown as living visual systems."
-          copy="The logo comes first, then the supporting brand pages, campaign designs and mockup-style visuals that show how the brand can live in public."
         />
 
         <div className="space-y-16">
           {brandProjects.map((brand, brandIndex) => (
             <motion.article key={brand.name} className="grid gap-5 lg:grid-cols-[320px_1fr]" variants={fade} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.18 }} transition={{ delay: brandIndex * 0.06 }}>
-              <div className="sticky top-8 h-fit rounded-[28px] border border-white/10 bg-white/[0.04] p-5">
+              <div className="h-fit rounded-[28px] border border-white/10 bg-white/[0.04] p-5 lg:sticky lg:top-8">
                 <button onClick={() => onOpenImage({ images: [brand.logo], index: 0, title: `${brand.name} logo` })} className="group block overflow-hidden rounded-2xl bg-black">
                   <img src={brand.logo} alt={`${brand.name} logo`} className="aspect-square w-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" decoding="async" />
                 </button>
@@ -379,20 +383,22 @@ function LogoSection({ onOpenImage }) {
         <SectionIntro
           eyebrow="Logo showcase"
           title="Logo-first thinking for brands that need memory."
-          copy="A logo should be the first signal. This wall keeps the visuals compact and moving like a curated inspiration board."
         />
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
           {logoWall.map((image, index) => (
             <motion.button
               key={`${image}-${index}`}
               onClick={() => onOpenImage({ images: logoWall, index, title: "Logo showcase" })}
-              className="group overflow-hidden rounded-[24px] border border-white/10 bg-black p-3"
+              className="group relative overflow-hidden rounded-[24px] border border-white/10 bg-black p-3"
               initial={{ opacity: 0, y: 24, rotate: index % 2 ? 1.4 : -1.4 }}
               whileInView={{ opacity: 1, y: 0, rotate: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ delay: (index % 6) * 0.045, duration: 0.5 }}
             >
               <img src={image} alt={`Logo sample ${index + 1}`} className="aspect-square w-full rounded-[18px] object-cover grayscale transition duration-500 group-hover:grayscale-0" loading="lazy" decoding="async" />
+              <span className="absolute bottom-5 left-1/2 -translate-x-1/2 rounded-full bg-black/75 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-white opacity-100 backdrop-blur transition group-hover:bg-red-600 sm:opacity-0 sm:group-hover:opacity-100">
+                Tap / hover
+              </span>
             </motion.button>
           ))}
         </div>
@@ -408,7 +414,6 @@ function FlyersSection({ onOpenImage }) {
         <SectionIntro
           eyebrow="Flyer design system"
           title="Event, church, school, business and birthday visuals."
-          copy="Each category is arranged like a Pinterest board, so the viewer can quickly feel the variety without the page becoming crowded."
         />
         <div className="space-y-20">
           {flyerGroups.map((group, index) => (
@@ -418,10 +423,97 @@ function FlyersSection({ onOpenImage }) {
                   <p className="text-xs font-black uppercase tracking-[0.22em] text-red-400">Category {index + 1}</p>
                   <h3 className="mt-2 text-3xl font-black">{group.title}</h3>
                 </div>
-                <p className="max-w-md text-sm leading-6 text-white/60">{group.subtitle}</p>
               </div>
               <PinterestGrid images={group.images.filter(Boolean)} title={group.title} onOpenImage={onOpenImage} offset={index} />
             </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function VideoCard({ video, index }) {
+  const [active, setActive] = useState(false);
+  const [muted, setMuted] = useState(true);
+  const [progress, setProgress] = useState(0);
+  const videoRef = useRef(null);
+
+  const togglePlay = () => {
+    const videoEl = videoRef.current;
+    if (!videoEl) return;
+    if (videoEl.paused) {
+      videoEl.play();
+      setActive(true);
+    } else {
+      videoEl.pause();
+      setActive(false);
+    }
+  };
+
+  const toggleMute = () => {
+    const videoEl = videoRef.current;
+    if (!videoEl) return;
+    videoEl.muted = !videoEl.muted;
+    setMuted(videoEl.muted);
+  };
+
+  const updateProgress = () => {
+    const videoEl = videoRef.current;
+    if (!videoEl?.duration) return;
+    setProgress((videoEl.currentTime / videoEl.duration) * 100);
+  };
+
+  return (
+    <motion.article
+      className="group overflow-hidden rounded-[28px] border border-white/10 bg-white/[0.045] shadow-2xl shadow-black/20"
+      variants={fade}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.22 }}
+      transition={{ delay: index * 0.06 }}
+    >
+      <div className="relative bg-black">
+        <video
+          ref={videoRef}
+          src={video.src}
+          className="aspect-[9/13] w-full object-cover"
+          muted={muted}
+          playsInline
+          preload="metadata"
+          onTimeUpdate={updateProgress}
+          onEnded={() => setActive(false)}
+        />
+        <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/50 to-transparent p-4">
+          <div className="mb-4 h-1 rounded-full bg-white/15">
+            <div className="h-full rounded-full bg-red-500" style={{ width: `${progress}%` }} />
+          </div>
+          <div className="flex items-center justify-between">
+            <button onClick={togglePlay} className="grid h-11 w-11 place-items-center rounded-full bg-red-600 text-white" aria-label="Play video">
+              {active ? <FaPause /> : <FaPlay />}
+            </button>
+            <button onClick={toggleMute} className="grid h-10 w-10 place-items-center rounded-full bg-white/15 text-white" aria-label="Toggle sound">
+              {muted ? <FaVolumeMute /> : <FaVolumeUp />}
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="p-5">
+        <p className="text-xs font-black uppercase tracking-[0.2em] text-red-400">{video.type}</p>
+        <h3 className="mt-2 text-xl font-black text-white">{video.title}</h3>
+      </div>
+    </motion.article>
+  );
+}
+
+function VideoSection() {
+  return (
+    <section id="videos" className="bg-[#060606] px-5 py-24 text-white md:pl-24 lg:px-8 lg:pl-28">
+      <div className="mx-auto max-w-7xl">
+        <SectionIntro eyebrow="Video work" title="Edited motion for brands, events and social attention." />
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {videoWorks.map((video, index) => (
+            <VideoCard key={`${video.title}-${index}`} video={video} index={index} />
           ))}
         </div>
       </div>
@@ -543,6 +635,7 @@ export default function App() {
       <BrandSection onOpenImage={setImageState} />
       <LogoSection onOpenImage={setImageState} />
       <FlyersSection onOpenImage={setImageState} />
+      <VideoSection />
       <ContactSection />
       <ImageViewer imageState={imageState} setImageState={setImageState} />
     </div>
