@@ -173,7 +173,7 @@ function FloatingNav() {
 
   return (
     <motion.nav
-      className="fixed left-4 top-1/2 z-50 hidden -translate-y-1/2 rounded-2xl border border-white/10 bg-black/55 p-2 shadow-2xl shadow-black/40 backdrop-blur-xl md:block"
+      className="fixed left-4 top-1/2 z-50 hidden -translate-y-1/2 rounded-2xl border border-white/10 bg-black/60 p-2 shadow-2xl shadow-black/40 backdrop-blur-xl md:block"
       initial={{ x: -30, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ delay: 0.65, duration: 0.55 }}
@@ -187,7 +187,7 @@ function FloatingNav() {
               key={item.id}
               href={`#${item.id}`}
               className={`group relative grid h-11 w-11 place-items-center rounded-xl transition ${
-                active === item.id ? "bg-red-600 text-white" : "text-white/62 hover:bg-white/10 hover:text-white"
+                active === item.id ? "bg-red-600 text-white" : "text-white/60 hover:bg-white/10 hover:text-white"
               }`}
               aria-label={item.label}
             >
@@ -230,7 +230,7 @@ function RedHero() {
       <motion.div className="text-center" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25, duration: 0.7 }}>
         <p className="mb-6 text-xs font-black uppercase tracking-[0.42em] text-white/75">Samcodex creative studio</p>
         <h1 className="text-[17vw] font-black leading-none tracking-tight sm:text-[14vw] lg:text-[10vw]">PORTFOLIO</h1>
-        <p className="mx-auto mt-6 max-w-xl text-sm font-semibold leading-7 text-white/78 sm:text-base">
+        <p className="mx-auto mt-6 max-w-xl text-sm font-semibold leading-7 text-white/80 sm:text-base">
           Brand design, logos, flyers, social visuals and video editing with a clean commercial finish.
         </p>
       </motion.div>
@@ -250,7 +250,13 @@ function RedHero() {
 function AboutSection() {
   return (
     <section id="about" className="relative overflow-hidden bg-[#050505] px-5 py-24 text-white md:pl-24 lg:px-8 lg:pl-28">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,rgba(220,38,38,.22),transparent_36%),radial-gradient(circle_at_90%_70%,rgba(255,255,255,.06),transparent_30%)]" />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(circle at 20% 30%, rgba(220,38,38,.22), transparent 36%), radial-gradient(circle at 90% 70%, rgba(255,255,255,.06), transparent 30%)",
+        }}
+      />
       <div className="relative mx-auto grid max-w-7xl items-center gap-10 lg:grid-cols-[.9fr_1.1fr]">
         <motion.div className="mx-auto w-full max-w-[360px]" variants={fade} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.35 }}>
           <div className="relative">
@@ -264,7 +270,7 @@ function AboutSection() {
           <h2 className="mt-4 max-w-3xl text-3xl font-black leading-tight sm:text-5xl">
             I am Samson Badejo, a brand designer and visual content creator based in Nigeria.
           </h2>
-          <p className="mt-6 max-w-2xl text-base leading-8 text-white/66">
+          <p className="mt-6 max-w-2xl text-base leading-8 text-white/65">
             I create logos, brand designs, flyers, carousel visuals, and edited videos for brands, churches, schools, businesses and personal events. My focus is simple: make every message look clear, premium and easy to trust.
           </p>
           <div className="mt-7 grid gap-3 sm:grid-cols-3">
@@ -275,7 +281,7 @@ function AboutSection() {
             ].map(([title, copy]) => (
               <div key={title} className="rounded-2xl border border-white/10 bg-white/[0.04] p-5">
                 <h3 className="text-sm font-black text-white">{title}</h3>
-                <p className="mt-2 text-sm leading-6 text-white/55">{copy}</p>
+                <p className="mt-2 text-sm leading-6 text-white/60">{copy}</p>
               </div>
             ))}
           </div>
@@ -283,7 +289,7 @@ function AboutSection() {
             <a href={CV} target="_blank" rel="noreferrer" className="inline-flex items-center gap-3 rounded-full bg-red-600 px-5 py-3 text-sm font-black text-white">
               Download PDF <FaDownload />
             </a>
-            <a href={CONTACT.whatsapp} target="_blank" rel="noreferrer" className="inline-flex items-center gap-3 rounded-full border border-white/15 px-5 py-3 text-sm font-black text-white/84 hover:border-red-500">
+            <a href={CONTACT.whatsapp} target="_blank" rel="noreferrer" className="inline-flex items-center gap-3 rounded-full border border-white/15 px-5 py-3 text-sm font-black text-white/85 hover:border-red-500">
               Start a project <FaArrowRight />
             </a>
           </div>
@@ -322,7 +328,7 @@ function BrandSection({ onOpenImage }) {
                 </button>
                 <p className="mt-5 text-xs font-black uppercase tracking-[0.18em] text-red-400">Brand {brandIndex + 1}</p>
                 <h3 className="mt-2 text-2xl font-black">{brand.name}</h3>
-                <p className="mt-3 text-sm leading-6 text-white/58">{brand.description}</p>
+                <p className="mt-3 text-sm leading-6 text-white/60">{brand.description}</p>
                 <p className="mt-4 rounded-full bg-red-600/12 px-4 py-2 text-xs font-black text-red-300">{brand.tone}</p>
               </div>
 
@@ -351,7 +357,7 @@ function PinterestGrid({ images, title, onOpenImage, offset = 0 }) {
         >
           <img src={image} alt={`${title} ${index + 1}`} className={`${index % 3 === 1 ? "aspect-[4/5]" : index % 3 === 2 ? "aspect-square" : "aspect-[3/4]"} w-full object-cover transition duration-700 group-hover:scale-105`} loading="lazy" decoding="async" />
           <div className="flex items-center justify-between px-4 py-3">
-            <span className="text-xs font-black uppercase tracking-wider text-white/58">{title}</span>
+            <span className="text-xs font-black uppercase tracking-wider text-white/60">{title}</span>
             <FaExpand className="text-xs text-red-400 opacity-0 transition group-hover:opacity-100" />
           </div>
         </motion.button>
@@ -363,7 +369,12 @@ function PinterestGrid({ images, title, onOpenImage, offset = 0 }) {
 function LogoSection({ onOpenImage }) {
   return (
     <section id="logos" className="relative overflow-hidden bg-[#070707] px-5 py-24 text-white md:pl-24 lg:px-8 lg:pl-28">
-      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(220,38,38,.12),transparent_35%,rgba(255,255,255,.04))]" />
+      <div
+        className="absolute inset-0"
+        style={{
+          background: "linear-gradient(135deg, rgba(220,38,38,.12), transparent 35%, rgba(255,255,255,.04))",
+        }}
+      />
       <div className="relative mx-auto max-w-7xl">
         <SectionIntro
           eyebrow="Logo showcase"
@@ -407,7 +418,7 @@ function FlyersSection({ onOpenImage }) {
                   <p className="text-xs font-black uppercase tracking-[0.22em] text-red-400">Category {index + 1}</p>
                   <h3 className="mt-2 text-3xl font-black">{group.title}</h3>
                 </div>
-                <p className="max-w-md text-sm leading-6 text-white/58">{group.subtitle}</p>
+                <p className="max-w-md text-sm leading-6 text-white/60">{group.subtitle}</p>
               </div>
               <PinterestGrid images={group.images.filter(Boolean)} title={group.title} onOpenImage={onOpenImage} offset={index} />
             </motion.div>
@@ -427,7 +438,7 @@ function SkillsRibbon() {
           return (
             <motion.div
               key={skill.name}
-              className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.045] px-5 py-3 text-sm font-black text-white/78"
+              className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/[0.045] px-5 py-3 text-sm font-black text-white/80"
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -449,16 +460,16 @@ function ContactSection() {
     <section id="contact" className="bg-[#d90404] px-5 py-24 text-white md:pl-24 lg:px-8 lg:pl-28">
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.1fr_.9fr]">
         <div>
-          <p className="text-xs font-black uppercase tracking-[0.28em] text-white/72">Ready when you are</p>
+          <p className="text-xs font-black uppercase tracking-[0.28em] text-white/70">Ready when you are</p>
           <h2 className="mt-4 max-w-3xl text-4xl font-black leading-tight sm:text-6xl">
             Let us build visuals that make the brand feel unforgettable.
           </h2>
         </div>
         <div className="space-y-3">
-          <a className="flex items-center gap-4 rounded-2xl bg-black/18 p-4 font-black text-white backdrop-blur transition hover:bg-black/28" href={`mailto:${CONTACT.email}`}>
+          <a className="flex items-center gap-4 rounded-2xl bg-black/20 p-4 font-black text-white backdrop-blur transition hover:bg-black/30" href={`mailto:${CONTACT.email}`}>
             <FaEnvelope /> {CONTACT.email}
           </a>
-          <a className="flex items-center gap-4 rounded-2xl bg-black/18 p-4 font-black text-white backdrop-blur transition hover:bg-black/28" href={`tel:${CONTACT.phone}`}>
+          <a className="flex items-center gap-4 rounded-2xl bg-black/20 p-4 font-black text-white backdrop-blur transition hover:bg-black/30" href={`tel:${CONTACT.phone}`}>
             <FaPhoneAlt /> {CONTACT.phone}
           </a>
           <a className="flex items-center gap-4 rounded-2xl bg-black p-4 font-black text-white transition hover:bg-white hover:text-black" href={CONTACT.whatsapp} target="_blank" rel="noreferrer">
@@ -490,7 +501,7 @@ function ImageViewer({ imageState, setImageState }) {
 
   return (
     <AnimatePresence>
-      <motion.div className="fixed inset-0 z-[120] grid place-items-center bg-black/92 p-4 backdrop-blur-xl" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+      <motion.div className="fixed inset-0 z-[120] grid place-items-center bg-black/90 p-4 backdrop-blur-xl" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
         <div className="relative flex h-full max-h-[86vh] w-full max-w-4xl items-center justify-center">
           <button onClick={() => setImageState(null)} className="absolute right-0 top-0 z-10 grid h-10 w-10 place-items-center rounded-full bg-white text-black" aria-label="Close image">
             <FaTimes />
