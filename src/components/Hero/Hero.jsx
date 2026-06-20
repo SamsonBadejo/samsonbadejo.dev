@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link as ScrollLink } from "react-scroll";
 import HeroBgv from "../../assets/Blue background with focus spot light.jpeg";
 import PhoneShowcase from "../PhoneShowcase/PhoneShowcase";
+import Sammie from "../../assets/Sammie.png";
 
 const Hero = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -25,65 +26,93 @@ const Hero = () => {
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/95"></div>
         {/* Main Content */}
-        <div className="relative z-10 max-w-4xl px-6 lg:mt-0 md:mt-0 mt-15">
+        <div className="relative max-w-7xl z-10 px-6 lg:mt-8 md:mt-0 mt-15  ">
           <h1
-            className="text-5xl md:text-7xl font-extrabold leading-tight mb-4"
-            data-aos="fade-down"
+            className="text-[33px] md:text-7xl lg:text-[100px] font-extrabold leading-tight mb-4"
+            // data-aos="fade-down"
           >
-            Hi, I’m <span className="text-[red]">Badejo Samson</span>
+            HI, I’M <span className="text-[red]">SAMSON BADEJO</span>
           </h1>
 
-          <h2
-            className="text-xl md:text-2xl font-semibold text-white mb-6"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            Full Stack Developer | Graphics Designer | Video Editor | Problem
-            Solver
-          </h2>
+          <div className="flex flex-col lg:flex-row md:flex-row sm:flex-col justify-around">
+            {/* section 1 */}
+            <div className="w-100 mt-10">
+              <h2
+                className="text-xl md:text-2xl font-semibold text-white mb-6 text-left"
+                data-aos="fade-up"
+                data-aos-delay="200"
+              >
+                Graphics Designer | Full Stack Developer | Graphics Designer |
+                Video Editor | Problem Solver
+              </h2>
 
-          <p
-            className="text-gray-100 text-lg md:text-xl mb-10 leading-relaxed"
-            data-aos="zoom-in"
-            data-aos-delay="400"
-          >
-            Passionate about building modern, intelligent, and scalable web
-            applications with{" "}
-            <span className="text-[red] font-semibold">React</span> and{" "}
-            <span className="text-[red] font-semibold">Node.js</span>. I love
-            crafting digital experiences that blend clean design with solid
-            functionality.
-          </p>
+              
 
-          {/* Buttons */}
+              <p
+                className="text-gray-100 text-lg mb-10 leading-relaxed text-left"
+                // data-aos="zoom-in"
+                // data-aos-delay="400"
+              >
+                I design clean, engaging visuals for brands and Social Media
+                ,and with strong experience in
+                <span className="text-[red] font-semibold"> PHOTOSHOP</span>,
+                <span className="text-[red] font-semibold"> CORELDRAW</span> and
+                <span className="text-[red] font-semibold"> CANVA</span>,
+                including high-quality photo retouching.
+                <br />
+                <br />
+                <p>
+                  As a Full Stack Developer, I build modern, scalable web
+                  applications using
+                  <span className="text-[red] font-semibold"> REACT</span>, and
+                  <span className="text-[red] font-semibold"> NODE.JS</span>, ,
+                  focusing on performance and seamless user experience.
+                </p>
+              </p>
+              <div>
+                {/* Buttons */}
 
-          <div
-            className="flex flex-wrap justify-center gap-5"
-            data-aos="fade-up"
-            data-aos-delay="600"
-          >
-            <ScrollLink
-              to="projects"
-              smooth={true}
-              duration={600}
-              offset={-50}
-              className="cursor-pointer text-white hover:text-[red] font-medium transition-colors duration-200"
-            >
-              <button className="bg-[red] text-white px-8 py-3 rounded-full font-semibold cursor-pointer hover:bg-[#c51212] transition">
-                View My Projects
-              </button>
-            </ScrollLink>
-            <ScrollLink
-              to="contact"
-              smooth={true}
-              duration={600}
-              offset={-40}
-              className="cursor-pointer text-white hover:text-[red] font-medium transition-colors duration-200"
-            >
-              <button className="border-2 border-[red] text-[red] px-8 py-3 rounded-full cursor-pointer font-semibold hover:bg-[red] hover:text-white transition">
-                Let’s Connect
-              </button>
-            </ScrollLink>
+                <div
+                  className="flex flex-row flex-wrap  gap-5"
+                  // data-aos="fade-up"
+                  // data-aos-delay="600"
+                >
+                  <ScrollLink
+                    to="projects"
+                    smooth={true}
+                    duration={600}
+                    offset={-50}
+                    className="cursor-pointer text-white hover:text-[red] font-medium transition-colors duration-200"
+                  >
+                    <button className="bg-[red] text-white px-8 py-3 rounded-full font-semibold cursor-pointer hover:bg-[#c51212] transition">
+                      View My Projects
+                    </button>
+                  </ScrollLink>
+                  <ScrollLink
+                    to="contact"
+                    smooth={true}
+                    duration={600}
+                    offset={-40}
+                    className="cursor-pointer text-white hover:text-[red] font-medium transition-colors duration-200"
+                  >
+                    <button className="border-2 border-[white] text-[white] px-8 py-3 rounded-full cursor-pointer font-semibold hover:border-[red] hover:bg-[red] hover:text-white transition">
+                      Let’s Connect
+                    </button>
+                  </ScrollLink>
+                </div>
+              </div>
+            </div>
+
+            {/* section 2 */}
+            <div>
+              {/* <img
+                className="w-100 rounded-full border-[red] border-4
+            "
+                src={Sammie}
+                alt={Sammie}
+              /> */}
+              <PhoneShowcase />
+            </div>
           </div>
 
           {/* Availability Note */}
@@ -97,9 +126,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      {/* <div>
-        <PhoneShowcase />
-      </div> */}
+    
     </section>
   );
 };

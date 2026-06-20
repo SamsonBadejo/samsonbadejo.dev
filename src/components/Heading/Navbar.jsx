@@ -3,6 +3,7 @@ import { Link as ScrollLink } from "react-scroll";
 import { motion, AnimatePresence } from "framer-motion";
 import { TiThMenu } from "react-icons/ti";
 import { IoClose } from "react-icons/io5";
+import DarkMode from "../Darkmode/DarkMode";
 
 const NavLinks = [
   { name: "Home", link: "home" },
@@ -33,14 +34,13 @@ const Navbar = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-
         {/* Logo */}
-        <h1 className="text-white font-bold text-2xl">
-          B.Samson <span className="text-[red]">Portfolio</span>
+        <h1 className="text-white dark:text-[red] font-bold text-2xl">
+          B.Samson <span className="text-[red] ">Portfolio</span>
         </h1>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex gap-8 text-white">
+        <nav className="hidden md:flex gap-8 text-white dark:bg-red-800">
           {NavLinks.map((link) => (
             <ScrollLink
               key={link.name}
@@ -54,6 +54,9 @@ const Navbar = () => {
             </ScrollLink>
           ))}
         </nav>
+
+              <DarkMode />
+
 
         {/* Mobile Menu Button */}
         <button
@@ -110,6 +113,7 @@ const Navbar = () => {
                   </ScrollLink>
                 ))}
               </nav>
+
 
               {/* CTA Button */}
               <motion.button
