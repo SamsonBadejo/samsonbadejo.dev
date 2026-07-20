@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { FaArrowRight, FaDownload } from "react-icons/fa";
 import Profile from "../../assets/Sammie.png";
-import CV from "../../assets/CV Samson Badejo.pdf";
+import CV from "../../assets/Samson Badejo CV (Graphics Designer & Video Editor).pdf";
 import { CONTACT, fade } from "./portfolioData";
 
 export default function AboutSection() {
