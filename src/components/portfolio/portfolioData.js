@@ -20,8 +20,12 @@ export const CONTACT = {
   whatsapp: "https://wa.me/2349155278013",
   linkedin: "https://www.linkedin.com/in/samson-badejo",
   instagram: "https://www.instagram.com/samcodex/",
-  github: "https://github.com/SamsonBadejo",
+  // github: "https://github.com/SamsonBadejo",
 };
+
+const ShortForm1 = "https://res.cloudinary.com/dcfqoupal/video/upload/v1784670580/Idify_shortform_video_udzscp.mp4"
+const ShortForm2 = "https://res.cloudinary.com/dcfqoupal/video/upload/v1784671297/Idify_shortform_video_2_fhmo6z.mp4"
+const Motion1 = "https://res.cloudinary.com/dcfqoupal/video/upload/v1784671021/Modest-lade_Bio_refresh_pmhg4f.mp4"
 
 export const navItems = [
   { id: "top", label: "Home", icon: FaHome },
@@ -43,16 +47,17 @@ export const skills = [
 ];
 
 export const videoWorks = [
-  { title: "Brand Reel", type: "Brand content", src: ReelOne },
-  { title: "Short Form Edit", type: "Social media", src: ReelTwo },
-  { title: "Wedding Style Cut", type: "Event story", src: ReelTwo },
-  { title: "Before / After Edit", type: "Editing proof", src: ReelOne },
+  // { title: "Brand Reel", type: "Brand content", src: ShortForm1 },
+  { title: "Short Form Edit", type: "Social media", src: ShortForm1 },
+  { title: "Short Form Edit", type: "Social media", src: ShortForm2 },
+  { title: "Motion Edit", type: "Event story", src: Motion1 },
+  // { title: "Before / After Edit", type: "Editing proof", src: ReelOne },
 ];
 
 export const socialLinks = [
   [CONTACT.linkedin, FaLinkedin, "LinkedIn"],
   [CONTACT.instagram, FaInstagram, "Instagram"],
-  [CONTACT.github, FaGithub, "GitHub"],
+  // [CONTACT.github, FaGithub, "GitHub"],
 ];
 
 export const fade = {

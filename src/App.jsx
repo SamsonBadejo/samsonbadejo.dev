@@ -10,6 +10,7 @@ import LogoSection from "./components/portfolio/LogoSection";
 import { FloatingNav, MobileTopNav, QuickContact, ScrollProgress, ThemeToggle } from "./components/portfolio/Navigation";
 import SkillsRibbon from "./components/portfolio/SkillsRibbon";
 import VideoSection from "./components/portfolio/VideoSection";
+import CarouselSection from "./components/portfolio/CarouselSection";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -38,6 +39,7 @@ export default function App() {
       <SkillsRibbon />
       <BrandSection onOpenImage={setImageState} />
       <LogoSection onOpenImage={setImageState} />
+      <CarouselSection onOpenImage={setImageState} />
       <FlyersSection onOpenImage={setImageState} />
       <VideoSection />
       <ContactSection />

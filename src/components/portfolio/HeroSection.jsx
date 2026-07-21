@@ -8,7 +8,7 @@ export default function HeroSection() {
         <div className="absolute bottom-[12%] right-[10%] h-52 w-52 rounded-full bg-black/35 blur-3xl" />
       </motion.div>
       <motion.div className="text-center" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.25, duration: 0.7 }}>
-        <p className="mb-6 text-xs font-black uppercase tracking-[0.42em] text-white/75">Samcodex creative studio</p>
+        <p className="mb-6 text-xs font-black uppercase tracking-[0.42em] text-white/75">Samson Badejo</p>
         <h1 className="text-[17vw] font-black leading-none tracking-tight sm:text-[14vw] lg:text-[10vw]">PORTFOLIO</h1>
       </motion.div>
       <motion.a

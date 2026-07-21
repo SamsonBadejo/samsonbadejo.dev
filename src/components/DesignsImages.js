@@ -32,6 +32,20 @@ const brandThreeImages = [
   "https://res.cloudinary.com/dcfqoupal/image/upload/v1781959287/logo_rxukdi.png",
 ];
 
+const carouselImage1 = [
+  "https://res.cloudinary.com/dcfqoupal/image/upload/v1784673850/Duodazzle_-_Idify_1_j6k9xr.png",
+  "https://res.cloudinary.com/dcfqoupal/image/upload/v1784673863/Duodazzle_-_Idify_2_uf8ptp.png",
+  "https://res.cloudinary.com/dcfqoupal/image/upload/v1784673855/Duodazzle_-_Idify_3_yu6hit.png",
+  "https://res.cloudinary.com/dcfqoupal/image/upload/v1784673857/Duodazzle_-_Idify_4_c4wzjf.png",
+  "https://res.cloudinary.com/dcfqoupal/image/upload/v1784673854/Duodazzle_-_Idify_5_dox6hs.png",
+];
+const carouselImage2 = [
+  "https://res.cloudinary.com/dcfqoupal/image/upload/v1784674171/Carousel_1d_ec5rp0.png",
+  "https://res.cloudinary.com/dcfqoupal/image/upload/v1784674170/Carousel_1c_jxf39s.png",
+  "https://res.cloudinary.com/dcfqoupal/image/upload/v1784674168/Carousel_1b_xn7wsy.png",
+  "https://res.cloudinary.com/dcfqoupal/image/upload/v1784674168/Carousel_1a_ctjcjd.png",
+];
+
 const churchFlyers = [
   "https://res.cloudinary.com/dmo3kbz6s/image/upload/v1762255017/Polish_20251031_045945567_b3cin2.jpg",
   "https://res.cloudinary.com/dmo3kbz6s/image/upload/v1764580614/Isokan_Sunday_2_drrfrj.jpg",
@@ -62,33 +76,47 @@ const schoolFlyers = [
 
 export const brandProjects = [
   {
-  id: "brand-1",
-  name: "Devlance",
-  description:
-    "A modern technology brand focused on delivering web development, digital solutions, and innovative online experiences. The project involved creating a clean visual identity, logo system, brand mockups, and marketing assets that reflect professionalism, creativity, and growth.",
-  tone: "Logo design, brand identity, mockups, social media assets",
-  logo: brandOneImages[0],
-  images: brandOneImages,
-},
-{
-  id: "brand-2",
-  name: "Akosiwa Herbals & Skincare",
-  description:
-    "A natural skincare and wellness brand specializing in herbal beauty products. This project focused on developing a professional visual presence through social media creatives, promotional campaigns, product-focused designs, and brand-consistent marketing materials.",
-  tone: "Campaign direction, social media design, promotional flyers, brand mockups",
-  logo: brandTwoImages[0],
-  images: brandTwoImages,
-},
-{
-  id: "brand-3",
-  name: "Idify",
-  description:
-    "A creative digital agency helping brands become impossible to ignore through branding, design, content creation, and digital experiences. The project included visual identity development, content systems, marketing creatives, and reusable social media templates for consistent brand communication.",
-  tone: "Visual identity, content system, branding, social media templates",
-  logo: brandThreeImages[0],
-  images: brandThreeImages,
-},
-  
+    id: "brand-1",
+    name: "Devlance",
+    description:
+      "A modern technology brand focused on delivering web development, digital solutions, and innovative online experiences. The project involved creating a clean visual identity, logo system, brand mockups, and marketing assets that reflect professionalism, creativity, and growth.",
+    tone: "Logo design, brand identity, mockups, social media assets",
+    logo: brandOneImages[0],
+    images: brandOneImages,
+  },
+  {
+    id: "brand-2",
+    name: "Akosiwa Herbals & Skincare",
+    description:
+      "A natural skincare and wellness brand specializing in herbal beauty products. This project focused on developing a professional visual presence through social media creatives, promotional campaigns, product-focused designs, and brand-consistent marketing materials.",
+    tone: "Campaign direction, social media design, promotional flyers, brand mockups",
+    logo: brandTwoImages[0],
+    images: brandTwoImages,
+  },
+  {
+    id: "brand-3",
+    name: "Idify",
+    description:
+      "A creative digital agency helping brands become impossible to ignore through branding, design, content creation, and digital experiences. The project included visual identity development, content systems, marketing creatives, and reusable social media templates for consistent brand communication.",
+    tone: "Visual identity, content system, branding, social media templates",
+    logo: brandThreeImages[0],
+    images: brandThreeImages,
+  },
+];
+
+export const carouselImages = [
+  {
+    id: "brand-1",
+    name: "Idify",
+    logo: carouselImage1[0],
+    images: carouselImage1,
+  },
+  {
+    id: "brand-2",
+    name: "Justlit digital",
+    logo: carouselImage2[0],
+    images: carouselImage2,
+  },
 ];
 
 // export const logoShowcase = [
@@ -106,6 +134,7 @@ export const brandProjects = [
 
 export const logoShowcase = [
   "https://res.cloudinary.com/dcfqoupal/image/upload/v1783994873/Pma_logo_ligmzw.png",
+  "https://res.cloudinary.com/dcfqoupal/image/upload/v1784675254/Logo_zovanna_2_tzs7u3.png",
   "https://res.cloudinary.com/dcfqoupal/image/upload/v1783994872/Omoluwabi_social_logo_eskrvh.png",
   "https://res.cloudinary.com/dcfqoupal/image/upload/v1783994872/Idify_logo_umgcve.png",
   "https://res.cloudinary.com/dcfqoupal/image/upload/v1783994871/Devlance_logo_d2orpy.png",
@@ -124,6 +153,8 @@ export const businessFlyers = [
   "https://res.cloudinary.com/dcfqoupal/image/upload/v1783997791/Asoebi_b_e167gh.jpg",
   "https://res.cloudinary.com/dcfqoupal/image/upload/v1783997787/Asoebi_a_w3lr6y.jpg",
   "https://res.cloudinary.com/dcfqoupal/image/upload/v1783997799/ASOEBIPAY_flyer_ml7kg3.png",
+  "https://res.cloudinary.com/dcfqoupal/image/upload/v1784672619/Aerobeyond_-_Canada_rfoqxo.png",
+  "https://res.cloudinary.com/dcfqoupal/image/upload/v1784672802/Aerobeyond_-_Visa_Processing_een9sv.png",
   "https://res.cloudinary.com/dcfqoupal/image/upload/v1783997560/Justlit_-_HNM_1_erqdpw.png",
   "https://res.cloudinary.com/dcfqoupal/image/upload/v1783997465/Social_Flyer_1_i4gfma.png",
   "https://res.cloudinary.com/dcfqoupal/image/upload/v1783995920/Day_16_design_sbqiwx.jpg",
@@ -138,8 +169,7 @@ export const businessFlyers = [
 export const retouched = [
   "https://res.cloudinary.com/dcfqoupal/image/upload/v1784009909/retouched_1_y2n3kw.png",
   "https://res.cloudinary.com/dcfqoupal/image/upload/v1784010265/retouched_3_p4nhbz.png",
-  "https://res.cloudinary.com/dcfqoupal/image/upload/v1784010434/retouched_2_u4npdf.jpg"
-
+  "https://res.cloudinary.com/dcfqoupal/image/upload/v1784010434/retouched_2_u4npdf.jpg",
 ].filter(Boolean);
 
 export const flyerGroups = [
